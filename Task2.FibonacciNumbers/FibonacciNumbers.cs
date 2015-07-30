@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace Task2.FibonacciNumbers
 {
-    public class FibonacciNumbers
+    public static class FibonacciNumbers
     {
-        private int n;
-
-        public int[] GetFirstNumbers(int n)
+        public static int[] GetFirstNumbers(int n)
         {
             if (n < 1)
             {
                 throw new ArgumentOutOfRangeException("n");
             }
-            this.n = n;
             int [] result = new int[n];
-            IEnumerator<int> enumerator = GetEnumerator();
+            IEnumerator<int> enumerator = GetEnumerator(n);
             int i = 0;
             while(enumerator.MoveNext())
             {
@@ -27,7 +24,7 @@ namespace Task2.FibonacciNumbers
             return result;
         }
 
-        private IEnumerator<int> GetEnumerator()
+        private static IEnumerator<int> GetEnumerator(int n)
         {
             int previousValue = 0;
             int currentValue = 1;
